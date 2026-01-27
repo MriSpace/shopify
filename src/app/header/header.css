@@ -1,0 +1,62 @@
+.header {
+  height: 75px;
+  background-color: #111827; /* dark header */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Left section */
+.left {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Right section */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Logout button */
+.logout {
+  background-color: #ef4444;
+  border: none;
+  padding: 8px 14px;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logout:hover {
+  background-color: #dc2626;
+}
+
+/* Welcome message */
+.welcomemsg {
+  font-size: 14px;
+  color: #e5e7eb;
+  white-space: nowrap;
+}
+
+/* Avatar */
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #ffffff; /* fallback if no image */
+  border: 4px solid #ffffff;
+}
