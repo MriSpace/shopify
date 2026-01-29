@@ -145,3 +145,12 @@ button:disabled {
     background: #5adfe6;
     transform: translateY(-1px);
 }
+
+
+.login-text{
+    text-align: center;
+}
+
+.signup-header{
+    text-align: center;
+}

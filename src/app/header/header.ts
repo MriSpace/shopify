@@ -1,28 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { Auth } from '../common/services/auth';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.css',
   standalone: true
 })
-export class Header  implements OnInit{
-  username = ' ';
+export class Header implements OnInit {
+  @Input() user:any ={};
+  constructor(private router: Router, private auth: Auth) { }
 
-  constructor(private router: Router){}
-
-  ngOnInit(){
-    const user = localStorage.getItem('user');
-    if(user){
-      this.username = JSON.parse(user).username;
-      console.log(user)
-    }
+  ngOnInit() {
+    console.log(this.user);
   }
 
-  logout(){
-    this.router.navigate(['/login'],{replaceUrl:true})
+  logout() {
+    this.auth.logout(); //  remove token + user from storage
+    this.router.navigate(['/login'], { replaceUrl: true });
   }
 
 }

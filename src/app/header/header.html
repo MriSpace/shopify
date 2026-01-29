@@ -8,8 +8,7 @@
 
     <div class="right">
         <button class="logout" (click)="logout()">Logout</button>
-
-        <span class="welcomemsg">Welcome, {{username}} </span>
+        <span class="welcomemsg">Welcome, {{user?.firstName}} {{user.lastName}} </span>
         <img class="avatar"/>
     </div>
 </header>

@@ -3,13 +3,13 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators, } from "@angul
 import { nospaceValidator } from '../validators/nospace.validator';
 import { CommonModule, Location } from '@angular/common';
 import { UserStorage } from '../common/services/user-storage';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { validate } from '@angular/forms/signals';
 
 
 @Component({
   selector: 'app-signup',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './signup.html',
   styleUrl: './signup.css',
   standalone: true
@@ -55,8 +55,6 @@ export class Signup {
     this.router.navigate(['/login']);
   }
 
-  goBack() {
-    this.router.navigate(['/login'])
-  }
+
 
 }

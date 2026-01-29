@@ -1,9 +1,6 @@
-
-<button class="back-btn" type="button" (click)="goBack()"> ← Back</button>
-
 <form [formGroup]="signUpForm" (ngSubmit)="submitForm()">
     <div class="container">
-
+        <h2  class="signup-header">Sign Up</h2>
         <div>
             <label>First Name</label>
             <input type="text" formControlName="firstname" placeholder="First name">
@@ -49,7 +46,7 @@
             @if(signUpForm.get('age')?.invalid && signUpForm.get('age')?.touched){
             <p class="error">
                 @if(signUpForm.get('age')?.errors?.['required']){
-                    <span>Please fill in your age</span>
+                <span>Please fill in your age</span>
                 }
             </p>
 
@@ -63,7 +60,7 @@
 
         <div>
             <h4>Password:</h4>
-            <label  class="password">Create a password</label>
+            <label class="password">Create a password</label>
             <input type="password" placeholder="password" formControlName="password">
 
             <label class="password">Confirm password</label>
@@ -74,6 +71,10 @@
         <div class="submitbutton">
             <button type="submit" [disabled]="signUpForm.invalid">Submit</button>
         </div>
+
+        <p class="login-text">
+            <a routerLink="/">Go back to login</a>
+        </p>
 
 
 
