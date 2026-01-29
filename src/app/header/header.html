@@ -3,12 +3,12 @@
     <!-- <h1>my website</h1> -->
 
     <div class="left">
-        <span class="logo">Shopify</span>
+        <span class="logo" routerLink="/" style="cursor: pointer;">Shopify</span>
     </div>
 
     <div class="right">
         <button class="logout" (click)="logout()">Logout</button>
         <span class="welcomemsg">Welcome, {{user?.firstName}} {{user.lastName}} </span>
-        <img class="avatar"/>
+        <img class="avatar" [src]="user.image"/>
     </div>
 </header>

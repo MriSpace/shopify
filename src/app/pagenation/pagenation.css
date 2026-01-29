@@ -75,13 +75,15 @@
   color: #007bff;
 }
 
-/* Page Info Display */
-.pagination .page-info {
-  margin-left: 1rem;
-  color: #666;
-  font-size: 0.9rem;
-  white-space: nowrap;
-  font-weight: 500;
+/* Ellipsis styling */
+.pagination .ellipsis {
+  padding: 0.5rem 0.3rem;
+  color: #999;
+  user-select: none;
+  font-weight: bold;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 /* Responsive */
