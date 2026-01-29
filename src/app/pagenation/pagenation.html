@@ -1,5 +1,34 @@
 <div class="pagination">
-  <button (click)="changePage(1)">1</button>
-  <button (click)="changePage(2)">2</button>
-  <button (click)="changePage(3)">3</button>
-</div>
+  <!-- Previous Button -->
+  <button 
+    class="prev-btn"
+    (click)="changePage(currentPage - 1)" 
+    [disabled]="currentPage === 1"
+    title="Previous page">
+    ← Prev
+  </button>
+
+  <!-- Page Numbers -->
+  @for (item of pages; track $index) {
+    <button 
+      (click)="changePage($index + 1)"
+      [class.active]="currentPage === $index + 1"
+      [title]="'Go to page ' + ($index + 1)"
+      class="page-btn">
+      {{ $index + 1 }}
+    </button>
+  }
+
+  <!-- Next Button -->
+  <button 
+    class="next-btn"
+    (click)="changePage(currentPage + 1)" 
+    [disabled]="currentPage === pages?.length"
+    title="Next page">
+    Next →
+  </button>
+
+  <!-- Page Info -->
+  <span class="page-info" *ngIf="pages?.length">
+    Page {{ currentPage }} of {{ pages.length }}
+  </span>

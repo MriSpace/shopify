@@ -36,10 +36,10 @@
             <button [routerLink]="`/product/${product.id}`">View Details</button>
         </div>
         }
-        <app-pagenation [products]="products" [currentPage]="currentPage" (pageChange)="onPageChange($event)">
-        </app-pagenation>
-    </div>
 
+    </div>
+        <app-pagenation [itemsPerPage]="3" [itemlength]="products.length" [currentPage]="currentPage" (pageChange)="onPageChange($event)">
+        </app-pagenation>
 
     }
 

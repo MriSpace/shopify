@@ -20,10 +20,11 @@ export class ProductView implements OnInit {
   ngOnInit(): void {
     
   }
-  onPageChange(pageProducts: any[]) {
+  onPageChange(change: any) {
     // Handle page change event from pagination component
-    console.log('Page changed:', pageProducts);
-    this.filteredProducts = pageProducts;
+    console.log('Page changed:', change);
+    this.filteredProducts = this.products.slice(change.start, change.end);
+;
   }
 }
 
