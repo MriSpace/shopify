@@ -8,13 +8,13 @@ import { validate } from '@angular/forms/signals';
 
 
 @Component({
-  selector: 'app-signup',
+  selector: 'ms-signup-component',
   imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './signup.html',
   styleUrl: './signup.css',
   standalone: true
 })
-export class Signup {
+export class SignupComponent {
 
   signUpForm = new FormGroup({
     firstname: new FormControl('', [Validators.required, nospaceValidator]),

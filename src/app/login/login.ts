@@ -7,13 +7,13 @@ import { Auth } from '../common/services/auth';
 import { inject } from '@angular/core';
 
 @Component({
-  selector: 'app-login',
+  selector: 'ms-login-component',
   imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css',
   standalone: true
 })
-export class Login {
+export class LoginComponent {
 
   myForm = new FormGroup({
     username: new FormControl('', Validators.required),

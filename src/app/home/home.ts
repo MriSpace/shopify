@@ -1,18 +1,18 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Header } from '../header/header';
-import { ProductView } from '../product-view/product-view';
+import { HeaderComponent } from '../header/header';
+import { ProductViewComponent } from '../product-view/product-view';
 import { Subject } from 'rxjs';
 import { Auth } from '../common/services/auth';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  imports: [Header, ProductView],
+  selector: 'ms-home-component',
+  imports: [HeaderComponent, ProductViewComponent],
   templateUrl: './home.html',
   styleUrl: './home.css',
   standalone: true
 })
-export class Home implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy {
   user: any = {}
   name: string = 'test'
   private destroy$ = new Subject<void>();

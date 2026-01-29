@@ -3,21 +3,22 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from "@angular/router";
 import { CurrencypipePipe } from '../pipes/currencypipe-pipe';
-import { Header } from '../header/header';
+import { HeaderComponent } from '../header/header';
 import { Auth } from '../common/services/auth';
+import { CartService } from '../common/services/cart.service';
 
 @Component({
-  selector: 'app-product-details',
-  imports: [CommonModule, CurrencypipePipe, Header],
+  selector: 'ms-product-details-component',
+  imports: [CommonModule, CurrencypipePipe, HeaderComponent],
   templateUrl: './product-details.html',
   styleUrl: './product-details.css',
 })
-export class ProductDetails implements OnInit{
+export class ProductDetailsComponent implements OnInit{
   product: any;
   loading = true;
   user: any = {};
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private auth: Auth) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient, private auth: Auth, private cartService: CartService) {}
 
   ngOnInit() {
     this.getUserInfo();
@@ -35,5 +36,11 @@ export class ProductDetails implements OnInit{
     }, error => {
       this.user = {};
     })
+  }
+
+  addToCart(): void {
+    if (this.product) {
+      this.cartService.addToCart(this.product);
+    }
   }
 }

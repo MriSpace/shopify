@@ -33,13 +33,16 @@
             <p class="description">{{ product.description }}</p>
             <p class="price">{{ product.price | currencypipe}}</p>
             <p class="rating">Rating: {{ product.rating }}</p>
-            <button [routerLink]="`/product/${product.id}`">View Details</button>
+            <div class="product-actions">
+              <button [routerLink]="`/product/${product.id}`" class="btn-details">View Details</button>
+              <button (click)="addToCart(product)" class="btn-cart">Add to Cart</button>
+            </div>
         </div>
         }
 
     </div>
-        <app-pagenation [itemsPerPage]="3" [itemlength]="products.length" [currentPage]="currentPage" (pageChange)="onPageChange($event)">
-        </app-pagenation>
+        <ms-pagination-component [itemsPerPage]="3" [itemlength]="products.length" [currentPage]="currentPage" (pageChange)="onPageChange($event)">
+        </ms-pagination-component>
 
     }
 

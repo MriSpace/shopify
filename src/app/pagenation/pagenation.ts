@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges,  } from '@angular/core';
 
 @Component({
-  selector: 'app-pagenation',
+  selector: 'ms-pagination-component',
   imports: [CommonModule],
   templateUrl: './pagenation.html',
   styleUrl: './pagenation.css',
   standalone: true
 })
-export class Pagenation implements OnChanges, OnInit  {
+export class PaginationComponent implements OnChanges, OnInit  {
   
   @Input() itemlength: number = 0;
   @Output() pageChange = new EventEmitter<any>();

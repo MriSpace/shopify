@@ -1,26 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Route, Router, RouterLink } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { Auth } from '../common/services/auth';
+import { CartService } from '../common/services/cart.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-header',
+  selector: 'ms-header-component',
   imports: [CommonModule, RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.css',
   standalone: true
 })
-export class Header implements OnInit {
-  @Input() user:any ={};
-  constructor(private router: Router, private auth: Auth) { }
+export class HeaderComponent {
+  @Input() user: any = {};
 
-  ngOnInit() {
-    console.log(this.user);
-  }
+  constructor(private router: Router, private auth: Auth, public cartService: CartService) { }
 
   logout() {
     this.auth.logout(); //  remove token + user from storage
     this.router.navigate(['/login'], { replaceUrl: true });
   }
-
 }

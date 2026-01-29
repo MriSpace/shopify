@@ -1,4 +1,4 @@
-<app-header [user]="user"></app-header>
+<ms-header-component [user]="user"></ms-header-component>
 
 <div class="product-details-container" *ngIf="!loading && product">
   <div class="product-header">
@@ -85,7 +85,7 @@
 
       <!-- Action Buttons -->
       <div class="action-buttons">
-        <button class="btn-primary">Add to Cart</button>
+        <button class="btn-primary" (click)="addToCart()">Add to Cart</button>
         <button class="btn-secondary">Add to Wishlist</button>
       </div>
     </div>

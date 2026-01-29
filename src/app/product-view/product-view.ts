@@ -2,19 +2,20 @@ import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { CommonModule as CM } from '@angular/common';
 import { CurrencypipePipe } from '../pipes/currencypipe-pipe';
-import { Pagenation } from '../pagenation/pagenation';
+import { PaginationComponent } from '../pagenation/pagenation';
 import { ProductsService } from '../common/services/products.service';
+import { CartService } from '../common/services/cart.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-product-view',
-  imports: [CM, RouterLink, CurrencypipePipe, Pagenation ],
+  selector: 'ms-product-view-component',
+  imports: [CM, RouterLink, CurrencypipePipe, PaginationComponent ],
   templateUrl: './product-view.html',
   styleUrl: './product-view.css',
   standalone: true
 })
-export class ProductView implements OnInit, OnChanges, OnDestroy {
+export class ProductViewComponent implements OnInit, OnChanges, OnDestroy {
   products: any[] = [];
   loading: boolean = true;
   error: string | null = null;
@@ -23,7 +24,8 @@ export class ProductView implements OnInit, OnChanges, OnDestroy {
   itemsPerPage: number = 10;
   private destroy$ = new Subject<void>();
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService, public cartService: CartService) {}
+
 
   ngOnInit(): void {
     this.fetchProducts();
@@ -65,11 +67,14 @@ export class ProductView implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  onPageChange(change: any) {
+  onPageChange(change: any): void {
     // Handle page change event from pagination component
-    console.log('Page changed:', change);
     this.currentPage = change.page;
     this.filteredProducts = this.products.slice(change.start, change.end);
+  }
+
+  addToCart(product: any): void {
+    this.cartService.addToCart(product);
   }
 }
 
