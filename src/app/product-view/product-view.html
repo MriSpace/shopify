@@ -26,7 +26,7 @@
     <p class="error-text">{{ error }}</p>
     } @else {
     <div class="products-grid">
-        @for (product of products; track product.id) {
+        @for (product of filteredProducts; track product.id) {
         <div class="product-card">
             <img [src]="product.thumbnail" [alt]="product.title" class="product-image">
             <h3>{{ product.title }}</h3>
@@ -36,8 +36,8 @@
             <button [routerLink]="`/product/${product.id}`">View Details</button>
         </div>
         }
-        <app-pagination [products]="products" (pageChange)="onPageChange($event)">
-        </app-pagination>
+        <app-pagenation [products]="products" [currentPage]="currentPage" (pageChange)="onPageChange($event)">
+        </app-pagenation>
     </div>
 
 

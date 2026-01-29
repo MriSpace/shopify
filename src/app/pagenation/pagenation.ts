@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output,  } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges,  } from '@angular/core';
 
 @Component({
   selector: 'app-pagenation',
@@ -8,14 +8,17 @@ import { Component, EventEmitter, Input, Output,  } from '@angular/core';
   styleUrl: './pagenation.css',
   standalone: true
 })
-export class Pagenation  {
+export class Pagenation implements OnChanges  {
   
   @Input() products: any[] = [];
   @Output() pageChange = new EventEmitter<any[]>();
 
-  currentPage = 1;
+  @Input() currentPage!: number;
   itemsPerPage = 10;
-
+  ngOnChanges(changes: SimpleChanges): void {
+    this.changePage(this.currentPage)
+  }
+  
   changePage(page: number) {
     this.currentPage = page;
 
