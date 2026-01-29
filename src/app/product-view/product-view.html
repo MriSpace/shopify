@@ -39,6 +39,9 @@
             </div>
         </div>
         }
+        <app-pagenation [products]="products" [currentPage]="currentPage" (pageChange)="onPageChange($event)">
+        </app-pagenation>
+    </div>
 
     </div>
         <ms-pagination-component [itemsPerPage]="3" [itemlength]="products.length" [currentPage]="currentPage" (pageChange)="onPageChange($event)">
